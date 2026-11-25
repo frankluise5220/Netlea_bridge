@@ -1,0 +1,1820 @@
+{
+ "views": [
+  {
+   "title": "Home",
+   "icon": "mdi:home",
+   "path": "home",
+   "type": "sections",
+   "max_columns": 3,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "鱼缸",
+       "badges": [
+        {
+         "type": "entity",
+         "show_state": true,
+         "show_icon": true,
+         "entity": "sensor.hfjh_cn_848639975_m100_temperature_p_2_4",
+         "name": "鱼缸"
+        },
+        {
+         "type": "entity",
+         "show_state": true,
+         "show_icon": true,
+         "entity": "sensor.miaomiaoc_cn_blt_3_1l7dnb8dc4c00_t2_temperature_p_2_1",
+         "name": "温度计"
+        }
+       ],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-yu_gang"
+       },
+       "heading_style": "title"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s0"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s5"
+      },
+      {
+       "graph": "line",
+       "type": "sensor",
+       "entity": "sensor.tc1_d0bae463d90f_p",
+       "detail": 1
+      },
+      {
+       "graph": "line",
+       "type": "sensor",
+       "entity": "sensor.xiaomi_cn_blt_3_1m60bks0scc00_mini_temperature_p_2_1001",
+       "detail": 1,
+       "limits": {
+        "min": 24,
+        "max": 28
+       },
+       "unit": "0.1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.netlea_master_preset",
+       "features": [
+        {
+         "type": "select-options"
+        }
+       ]
+      },
+      {
+       "type": "tile",
+       "entity": "number.niteli_cn_941621996_flwp1_const_level_p_2_5"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_941621996_flwp1_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1089548223_v6shsm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "light.netlea_tank_light"
+      },
+      {
+       "type": "tile",
+       "entity": "climate.giot_cn_2031451284_v1itcw"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zheng_guo_cha_zuo_kai_guan_kai_guan"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.huan_shui_kong_zhi_qi_yun_xing_zhuang_tai"
+      },
+      {
+       "type": "tile",
+       "entity": "button.huan_shui_kong_zhi_qi_huan_shui"
+      },
+      {
+       "type": "tile",
+       "entity": "button.huan_shui_kong_zhi_qi_pai_shui"
+      },
+      {
+       "type": "tile",
+       "entity": "button.huan_shui_kong_zhi_qi_shang_shui"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.huan_shui_kong_zhi_qi_beng_zheng_zhuan"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.huan_shui_kong_zhi_qi_beng_fan_zhuan"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.huan_shui_kong_zhi_qi_dian_ci_fa"
+      },
+      {
+       "type": "tile",
+       "entity": "binary_sensor.huan_shui_kong_zhi_qi_xia_shui_wei"
+      },
+      {
+       "type": "tile",
+       "entity": "binary_sensor.huan_shui_kong_zhi_qi_shang_shui_wei"
+      },
+      {
+       "type": "tile",
+       "entity": "binary_sensor.huan_shui_kong_zhi_qi_lou_shui_bao_jing"
+      }
+     ],
+     "column_span": 3
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "厨房",
+       "badges": [],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-chu_fang"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "select.viomi_cn_582536061_v8_fan_level_p_4_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "light.viomi_cn_582536061_v8_s_3_light"
+      },
+      {
+       "type": "tile",
+       "entity": "select.msj_cn_682202351_v1_mode_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "select.xiaomi_cn_744872279_mes01_mode_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586334_036a02_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "light.xi_ding_deng_kai_guan_kai_guan"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.guo_biao_wificha_zuo"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "客厅",
+       "badges": [
+        {
+         "type": "entity",
+         "entity": "sensor.miaomiaoc_cn_blt_3_1k7qk066ck800_t2_relative_humidity_p_2_2"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.miaomiaoc_cn_blt_3_1k7qk066ck800_t2_temperature_p_2_1"
+        }
+       ],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-ke_ting"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "vacuum.roborock_cn_74452635_s5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.miir_cn_ir_1491662435831463936_ir02_ir_mode_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_on_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_62659221_m2_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.bo_lian_zhi_neng_cha_zuo_a"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "南卧",
+       "badges": [],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-nan_wo"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "light.yeelink_cn_57565537_ceiling1_s_2_light"
+      },
+      {
+       "type": "tile",
+       "entity": "select.yeelink_cn_57565537_ceiling1_ct_adjust_alexa_p_3_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1089548223_v6shsm_inchingswitch_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1089548223_v6shsm_default_power_on_state_p_2_5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1089548223_v6shsm_mode_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1089548223_v6shsm_led_normal_p_6_3"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "amanda",
+       "badges": [
+        {
+         "type": "entity",
+         "entity": "sensor.cgllc_cn_blt_3_137q52h205g01_dove_relative_humidity_p_2_2"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_87516139_va2_temperature_p_3_3"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_87516139_va2_pm2_5_density_p_3_2"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_87516139_va2_co2_density_p_3_4"
+        }
+       ],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-amanda"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "light.yeelink_cn_57562850_ceiling1_s_2_light"
+      },
+      {
+       "type": "tile",
+       "entity": "fan.zhimi_cn_87516139_va2_s_2_air_fresh"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "主卧",
+       "badges": [
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_98850042_va2_temperature_p_3_3"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_98850042_va2_relative_humidity_p_3_1"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_98850042_va2_co2_density_p_3_4"
+        },
+        {
+         "type": "entity",
+         "entity": "sensor.zhimi_cn_98850042_va2_pm2_5_density_p_3_2"
+        }
+       ],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-zhu_wo"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "fan.zhimi_cn_98850042_va2_s_2_air_fresh"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "卫生间",
+       "badges": [],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-wei_sheng_jian"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "light.topwit_cn_706415914_rz01_s_2_light"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.topwit_cn_706415914_rz01_heating_p_4_6"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.topwit_cn_706415914_rz01_blow_p_4_7"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.topwit_cn_706415914_rz01_ventilation_p_4_8"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "书房",
+       "badges": [],
+       "tap_action": {
+        "action": "navigate",
+        "navigation_path": "areas-shu_fang"
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "switch.lemesh_cn_1088823836_sw0a04_on_p_2_1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "宝应",
+   "path": "areas-bao_ying",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 宝应"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "空调",
+       "icon": "mdi:home-thermometer"
+      },
+      {
+       "type": "tile",
+       "entity": "humidifier.zhimi_cn_87318509_ca1"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "select.zhimi_cn_87318509_ca1_fan_level_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_87318509_ca1_alarm_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_87318509_ca1_physical_controls_locked_p_5_1"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "新建部件"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "TC1-97A6"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_s0"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_s1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_s2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_s3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_s4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_s5"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_child_lock"
+      },
+      {
+       "type": "tile",
+       "entity": "button.tc1_d0bae46397a6_reboot"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_total_socket"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae46397a6_led"
+      }
+     ]
+    }
+   ],
+   "badges": [
+    {
+     "entity": "sensor.zhimi_cn_87318509_ca1_temperature_p_3_2",
+     "type": "entity",
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "title": "厨房",
+   "path": "areas-chu_fang",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 厨房"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "water_heater.vaillant_plus_dtoaf3dsgh4464weczu6vn_water_heater",
+       "vertical": false,
+       "features_position": "bottom",
+       "grid_options": {
+        "columns": 12,
+        "rows": 2
+       }
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1062005457_sw0a01_on_off_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1062005457_sw0a01_default_p_3_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.viomi_cn_582536061_v8_fan_level_p_4_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.viomi_cn_582536061_v8_holiday_cycle_p_7_7"
+      },
+      {
+       "type": "tile",
+       "entity": "select.msj_cn_682202351_v1_mode_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "select.xiaomi_cn_744872279_mes01_mode_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.lemesh_cn_1062005457_sw0a01_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chunmi_cn_469559098_n20l01_physical_controls_locked_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_off_delay_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_stove_bind_p_5_5"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_light_on_p_6_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_power_on_light_p_7_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_power_off_light_p_7_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_clean_remine_on_p_7_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_holiday_on_p_7_6"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.viomi_cn_582536061_v8_gestures_p_7_11"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.msj_cn_682202351_v1_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.msj_cn_682202351_v1_dryer_p_2_8"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.msj_cn_682202351_v1_physical_controls_locked_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.msj_cn_682202351_v1_alarm_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.msj_cn_682202351_v1_keep_fresh_p_7_9"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.msj_cn_682202351_v1_wash_end_set_p_7_13"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_744872279_mes01_auto_keep_warm_p_2_11"
+      },
+      {
+       "type": "heading",
+       "heading": "国标WiFi插座"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.guo_biao_wificha_zuo"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.viomi_cn_582536061_v8_s_3_light"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  },
+  {
+   "title": "客厅",
+   "path": "areas-ke_ting",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 客厅"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "vacuum.roborock_cn_74452635_s5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1080996644_v53ksm_mode_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1080996644_v53ksm_default_power_on_state_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1080996644_v53ksm_mode_p_3_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1080996644_v53ksm_mode_p_4_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1080996644_v53ksm_led_normal_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1080996644_v53ksm_led_notnormal_p_6_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1082069143_v52ksm_mode_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1082069143_v52ksm_default_power_on_state_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1082069143_v52ksm_mode_p_3_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1082069143_v52ksm_led_normal_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1082069143_v52ksm_led_notnormal_p_6_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.chuangmi_cn_309973813_ipc019_night_shot_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.chuangmi_cn_309973813_ipc019_recording_mode_p_2_7"
+      },
+      {
+       "type": "tile",
+       "entity": "select.zhimi_cn_62659221_m2_mode_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.roborock_cn_74452635_s5_mode_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.miir_cn_ir_1491662435831463936_ir02_ir_mode_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_11_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_12_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_on_p_13_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1080996644_v53ksm_black_led_p_6_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_on_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_on_p_11_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_on_p_12_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1082069143_v52ksm_black_led_p_6_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_309973813_ipc019_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_309973813_ipc019_time_watermark_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_309973813_ipc019_wdr_mode_p_2_5"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_309973813_ipc019_glimmer_full_color_p_2_6"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_379515203_lx06_mute_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_379515203_lx06_mute_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_379515203_lx06_sleep_mode_p_5_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_62659221_m2_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_62659221_m2_alarm_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_62659221_m2_physical_controls_locked_p_7_1"
+      }
+     ],
+     "column_span": 2
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "温湿度计"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.miaomiaoc_cn_blt_3_1k7qk066ck800_t2_battery_level_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.miaomiaoc_cn_blt_3_1k7qk066ck800_t2_relative_humidity_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.miaomiaoc_cn_blt_3_1k7qk066ck800_t2_temperature_p_2_1"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "客厅空调"
+      },
+      {
+       "type": "tile",
+       "entity": "select.miir_cn_ir_1491662435831463936_ir02_ir_mode_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "button.miir_cn_ir_1491662435831463936_ir02_fan_speed_down_a_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "button.miir_cn_ir_1491662435831463936_ir02_fan_speed_up_a_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "button.miir_cn_ir_1491662435831463936_ir02_turn_off_a_2_5"
+      },
+      {
+       "type": "tile",
+       "entity": "button.miir_cn_ir_1491662435831463936_ir02_turn_on_a_2_6"
+      },
+      {
+       "type": "tile",
+       "entity": "number.miir_cn_ir_1491662435831463936_ir02_ir_temperature_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "button.miir_cn_ir_1491662435831463936_ir02_temperature_down_a_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "button.miir_cn_ir_1491662435831463936_ir02_temperature_up_a_2_4"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  },
+  {
+   "title": "南卧",
+   "path": "areas-nan_wo",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 南卧"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.yeelink_cn_57565537_ceiling1_s_2_light",
+       "features": [
+        {
+         "type": "light-brightness"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "select.yeelink_cn_57565537_ceiling1_ct_adjust_alexa_p_3_3"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "新建部件"
+      },
+      {
+       "camera_view": "auto",
+       "fit_mode": "cover",
+       "type": "picture-glance",
+       "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+       "entities": [
+        {
+         "entity": "camera.generic_onvif_001"
+        }
+       ],
+       "camera_image": "camera.generic_onvif_001",
+       "title": "南阳台"
+      }
+     ]
+    },
+    {
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "历史"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zm1_b0f893113f6e_temperature"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zm1_b0f893113f6e_pm25"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zm1_b0f893113f6e_humidity"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zm1_b0f893113f6e_hcho"
+      },
+      {
+       "type": "tile",
+       "entity": "light.zm1_b0f893113f6e_brightness"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zm1_b0f893113f6e_temperature"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  },
+  {
+   "title": "书房",
+   "path": "areas-shu_fang",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 书房"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.yeelink_cn_102891059_lamp3_s_2_light",
+       "features": [
+        {
+         "type": "light-brightness"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_default_power_on_state_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_indicator_light_p_3_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_interactive_switch_p_3_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_flex_switch_p_3_4"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_pilot_switch_p_3_5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_remote_get_p_8_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.lemesh_cn_1088823836_sw0a04_remote_add_p_8_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.chuangmi_cn_447586334_036a02_recording_mode_p_2_7"
+      },
+      {
+       "type": "tile",
+       "entity": "select.chuangmi_cn_447586334_036a02_detection_sensitivity_p_5_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.lemesh_cn_1088823836_sw0a04_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_445564083_lx05_mute_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_445564083_lx05_mute_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586334_036a02_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586334_036a02_motion_tracking_p_2_8"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586334_036a02_time_watermark_p_2_9"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586334_036a02_motion_detection_p_5_1"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  },
+  {
+   "title": "卫生间",
+   "path": "areas-wei_sheng_jian",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 卫生间"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.topwit_cn_706415914_rz01_s_2_light"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.topwit_cn_706415914_rz01_heating_p_4_6"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.topwit_cn_706415914_rz01_blow_p_4_7"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.topwit_cn_706415914_rz01_ventilation_p_4_8"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  },
+  {
+   "title": "鱼缸",
+   "path": "areas-yu_gang",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 鱼缸"
+    }
+   },
+   "max_columns": 2,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.hfjh_cn_848639975_m100_s_15_light",
+       "features": [
+        {
+         "type": "light-brightness"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1089548223_v6shsm_mode_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1089548223_v6shsm_default_power_on_state_p_2_5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1089548223_v6shsm_led_normal_p_6_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_mode_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_default_power_on_state_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_mode_p_3_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_mode_p_4_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_mode_p_5_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_led_normal_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.giot_cn_1135701708_v54ksm_led_notnormal_p_6_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.chuangmi_cn_447586033_036a02_recording_mode_p_2_7"
+      },
+      {
+       "type": "tile",
+       "entity": "select.chuangmi_cn_447586033_036a02_detection_sensitivity_p_5_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.cuco_cn_769375832_cp5d_off_manager_p_9_2"
+      },
+      {
+       "type": "tile",
+       "entity": "select.hfjh_cn_848639975_m100_pump_flux_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.hfjh_cn_848639975_m100_flow_speed_level_p_15_5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.hfjh_cn_848639975_m100_light_status_mode_p_8_5"
+      },
+      {
+       "type": "tile",
+       "entity": "select.hfjh_cn_848639975_m100_light_status_flow_p_8_7"
+      },
+      {
+       "type": "tile",
+       "entity": "select.hfjh_cn_848639975_m100_pump_status_flux_p_8_9"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1089548223_v6shsm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1089548223_v6shsm_inchingswitch_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_5_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_11_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_12_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_13_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_on_p_14_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_1135701708_v54ksm_black_led_p_6_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586033_036a02_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586033_036a02_motion_tracking_p_2_8"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586033_036a02_time_watermark_p_2_9"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.chuangmi_cn_447586033_036a02_motion_detection_p_5_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_on_p_7_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_physical_controls_locked_p_8_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_on_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_on_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_on_p_5_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_on_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.cuco_cn_769375832_cp5d_off_memory_p_9_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_water_pump_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_no_disturb_p_7_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_alarm_p_13_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_physical_controls_locked_p_16_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_light_edit_on_p_4_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_feed_protect_on_p_6_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_light_status_on_p_8_4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_pump_status_on_p_8_8"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.hfjh_cn_848639975_m100_temperature_warn_on_p_9_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_led"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_total_socket"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s0"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s5"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_child_lock"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_led"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae463d90f_s2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_total_socket"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_child_lock"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_s1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_s0"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_s2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_s4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_s3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.tc1_d0bae4631fcb_s5"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "白兰水泵"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_945150240_flwp1_key_lock_p_2_11"
+      },
+      {
+       "type": "tile",
+       "entity": "number.niteli_cn_945150240_flwp1_alarm_sensitivity_p_2_12"
+      },
+      {
+       "type": "tile",
+       "entity": "text.niteli_cn_945150240_flwp1_schedule_p_2_8"
+      },
+      {
+       "type": "tile",
+       "entity": "text.niteli_cn_945150240_flwp1_pause_a_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_945150240_flwp1_buzzer_p_2_10"
+      },
+      {
+       "type": "tile",
+       "entity": "number.niteli_cn_945150240_flwp1_const_level_p_2_5"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_945150240_flwp1_on_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.niteli_cn_945150240_flwp1_mode_p_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_945150240_flwp1_display_sleep_p_2_9"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_945150240_flwp1_feeding_p_2_4"
+      },
+      {
+       "type": "tile",
+       "entity": "number.niteli_cn_945150240_flwp1_feeding_time_p_2_7"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.niteli_cn_945150240_flwp1_pause_p_2_2"
+      },
+      {
+       "type": "tile",
+       "entity": "number.niteli_cn_945150240_flwp1_wave_level_p_2_6"
+      },
+      {
+       "type": "tile",
+       "entity": "text.niteli_cn_945150240_flwp1_const_a_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "text.niteli_cn_945150240_flwp1_feeding_a_2_3"
+      },
+      {
+       "type": "tile",
+       "entity": "text.niteli_cn_945150240_flwp1_wave_a_2_2"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "Gra智能温控器V1（WiFi）"
+      },
+      {
+       "type": "tile",
+       "entity": "climate.giot_cn_2031451284_v1itcw"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.giot_cn_2031451284_v1itcw_physical_controls_locked_p_4_1"
+      },
+      {
+       "type": "tile",
+       "entity": "number.giot_cn_2031451284_v1itcw_function_settings_p_5_4"
+      },
+      {
+       "type": "tile",
+       "entity": "button.giot_cn_2031451284_v1itcw_switch_a_5_1"
+      },
+      {
+       "type": "tile",
+       "entity": "text.giot_cn_2031451284_v1itcw_weekly_program_p_5_6"
+      },
+      {
+       "type": "tile",
+       "entity": "text.giot_cn_2031451284_v1itcw_weekly_program_p_5_7"
+      }
+     ]
+    }
+   ],
+   "badges": [
+    {
+     "entity": "sensor.hfjh_cn_848639975_m100_temperature_p_2_4",
+     "type": "entity",
+     "color": "red"
+    },
+    {
+     "entity": "sensor.miaomiaoc_cn_blt_3_1l7dnb8dc4c00_t2_relative_humidity_p_2_2",
+     "type": "entity",
+     "color": "indigo"
+    }
+   ]
+  },
+  {
+   "title": "主卧",
+   "path": "areas-zhu_wo",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## 主卧"
+    }
+   },
+   "max_columns": 3,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.yeelink_cn_313246914_ceiling1_s_2_light",
+       "features": [
+        {
+         "type": "light-brightness"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "空调",
+       "icon": "mdi:home-thermometer"
+      },
+      {
+       "type": "tile",
+       "entity": "fan.zhimi_cn_98850042_va2_s_2_air_fresh"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      },
+      {
+       "type": "tile",
+       "entity": "select.yeelink_cn_313246914_ceiling1_ct_adjust_alexa_p_3_3"
+      },
+      {
+       "type": "tile",
+       "entity": "select.zhimi_cn_98850042_va2_brightness_p_7_1"
+      },
+      {
+       "type": "tile",
+       "entity": "select.xiaomi_cn_mitv_383d838f04910195cbea186b31af2043_4af07bd955ac659ee5d9d14c23a00098_rmh1_input_control_p_2_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_98850042_va2_physical_controls_locked_p_5_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.zhimi_cn_98850042_va2_alarm_p_6_1"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_mitv_383d838f04910195cbea186b31af2043_4af07bd955ac659ee5d9d14c23a00098_rmh1_mute_p_4_2"
+      },
+      {
+       "type": "tile",
+       "entity": "switch.xiaomi_cn_mitv_383d838f04910195cbea186b31af2043_4af07bd955ac659ee5d9d14c23a00098_rmh1_is_on_p_8_1"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  },
+  {
+   "title": "amanda",
+   "path": "areas-amanda",
+   "type": "sections",
+   "header": {
+    "badges_position": "bottom",
+    "layout": "responsive",
+    "card": {
+     "type": "markdown",
+     "text_only": true,
+     "content": "## amanda"
+    }
+   },
+   "max_columns": 3,
+   "sections": [
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "灯光",
+       "icon": "mdi:lamps"
+      },
+      {
+       "type": "tile",
+       "entity": "light.yeelink_cn_57562850_ceiling1_s_2_light",
+       "features": [
+        {
+         "type": "light-brightness"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "空调",
+       "icon": "mdi:home-thermometer"
+      },
+      {
+       "type": "tile",
+       "entity": "fan.zhimi_cn_87516139_va2_s_2_air_fresh"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zhimi_cn_87516139_va2_temperature_p_3_3"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zhimi_cn_87516139_va2_relative_humidity_p_3_1"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zhimi_cn_87516139_va2_co2_density_p_3_4"
+      },
+      {
+       "type": "tile",
+       "entity": "sensor.zhimi_cn_87516139_va2_pm2_5_density_p_3_2"
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "cards": [
+      {
+       "type": "heading",
+       "heading": "其他",
+       "icon": "mdi:shape"
+      }
+     ]
+    }
+   ],
+   "badges": []
+  }
+ ]
+}

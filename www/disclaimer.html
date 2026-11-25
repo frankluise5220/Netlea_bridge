@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开发声明 / 免责声明 · Netlea_bridge</title>
+<style>
+:root{--teal:#12b8a6;--bg:#f5f7f8;--card:#fff;--line:#e5eaea;--txt:#1f2a2e;--dim:#7b8b90}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:20px;margin:6px 0 6px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.card h2{font-size:15px;margin:0 0 10px}
+p{margin:8px 0}
+ul{margin:8px 0 8px 18px;padding:0}
+li{margin:6px 0}
+.warn{background:#fff7e6;border-color:#f3ddb3}
+.back{display:inline-block;margin-top:8px;color:var(--teal);text-decoration:none;font-size:14px}
+code{background:#eef2f3;border-radius:6px;padding:1px 5px;font-size:13px}
+.foot{color:var(--dim);font-size:12px;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>开发声明 / 免责声明</h1>
+  <div class="sub">Netlea_bridge · 非官方第三方工具 · 最后更新 2026-11-25</div>
+
+  <div class="card warn">
+    <h2>一句话版本</h2>
+    <p>本项目是个人开发的<strong>非官方</strong>工具，与尼特利（Netlea）无任何关联。使用它可能让<b>灯具硬件</b>、<b>厂商云服务与账号</b>受到影响。由此产生的任何后果由<strong>使用者自行承担</strong>，作者与贡献者<strong>不承担任何责任</strong>。<strong>不同意本声明请勿部署。</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>1. 项目性质</h2>
+    <ul>
+      <li>本项目不是尼特利官方产品，未获得厂商授权、认证或技术支持。</li>
+      <li>仅针对作者自有的 <b>尼特利 水族时光 500 Ultra 顶配版</b>（零售型号 <code>SG-500U-YD</code>，固件机型串 <code>SG-500u-YDw11</code>）实测验证；其他型号未经验证，档位表/通道映射差异可能导致过载，请自行核对后再用。</li>
+      <li>实现方式为第三方对公开客户端行为的协议分析（厂商云 WebSocket + MQTT 桥接），属于非官方互操作，可能随厂商协议、接口、鉴权变化而随时失效。</li>
+      <li>项目按「现状（AS IS）」提供，不承诺可用性、稳定性、兼容性或持续维护。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>2. 风险告知</h2>
+    <p>使用者理解并确认，部署与使用本工具可能（但不限于）导致：</p>
+  <ul>
+    <li><b>硬件风险</b>：异常光谱/功率/风扇组合导致灯具过载、过热、光衰加速、驱动损坏，甚至引发火灾等安全事故；</li>
+    <li><b>设备与账号风险</b>：频繁下发指令可能触发厂商风控、限流、封禁账号或限制设备联网功能；</li>
+    <li><b>服务风险</b>：厂商修改或关闭接口后桥接失效、设备离线、行程/预设被改写；</li>
+    <li><b>售后风险</b>：使用非官方工具可能被厂商认定为非正常使用，从而影响保修与售后；</li>
+    <li><b>安全风险</b>：网页控制台默认无鉴权，若暴露到公网可能被他人操作灯具，请自行限制网络访问范围。</li>
+  </ul>
+  <p>上述风险由使用者自行评估并承担，包括但不限于设备维修/更换费用、生物资产（水草、鱼虾）损失、数据丢失及任何间接损失。</p>
+  </div>
+
+  <div class="card">
+    <h2>3. 责任限制</h2>
+    <ul>
+      <li>因使用或无法使用本项目造成的任何直接、间接、偶然、特殊或后果性损失，作者及贡献者均不承担责任。</li>
+      <li>本项目不提供任何明示或默示担保，包括适销性、特定用途适用性与不侵权担保。</li>
+      <li>使用者与厂商之间的权利义务（服务条款、保修条款等）不受本项目影响，亦不由本项目承担。</li>
+      <li>如不同意本声明任何条款，请立即停止部署并删除本项目的全部文件与容器。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. 部署即视为同意</h2>
+    <ul>
+      <li>在网页配置向导中勾选「我已阅读并同意免责声明」并保存配置，即视为你已完整阅读、理解并接受本声明。</li>
+      <li>该同意记录写入 <code>/data/config.json</code> 的 <code>accept_risk: true</code>；未写入该标记时，桥接不会启动。</li>
+      <li>你可以随时删除容器与 <code>/data</code> 目录来撤销使用。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>5. 其他</h2>
+    <ul>
+      <li>本项目仅用于个人学习与自有设备的互操作研究，请勿用于商业转售或代控他人设备。</li>
+      <li>请遵守当地法律法规与厂商服务条款；因违规使用产生的责任由使用者承担。</li>
+      <li>商标与产品名归其各自所有者；文中提及「尼特利 / Netlea / 水族时光」仅用于说明兼容对象。</li>
+    </ul>
+    <a class="back" href="/">← 返回配置页</a>
+  </div>
+
+  <div class="foot">本声明可能随项目更新而调整，以仓库最新版本（DISCLAIMER.md / www/disclaimer.html）为准。</div>
+</div>
+</body>
+</html>

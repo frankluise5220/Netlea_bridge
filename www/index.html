@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>尼特利水族时光 · Home Assistant 桥接</title>
+<style>
+:root{--teal:#12b8a6;--bg:#f5f7f8;--card:#fff;--line:#e5eaea;--txt:#1f2a2e;--dim:#7b8b90}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt)}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:20px;margin:8px 0 4px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:14px;line-height:1.6}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pill{font-size:12px;padding:4px 10px;border-radius:99px;background:#e9edee;color:#5a6b70}
+.pill.ok{background:#dcf5f1;color:#0b7f72}
+.pill.bad{background:#fde8e8;color:#b42318}
+.pill.run{background:#fff3d6;color:#8a6100}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tab{flex:1;text-align:center;padding:9px;border-radius:10px;background:#e9edee;font-size:14px;cursor:pointer;user-select:none}
+.tab.on{background:var(--teal);color:#fff;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h2{font-size:14px;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.card h2 span.n{width:20px;height:20px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;display:inline-flex;align-items:center;justify-content:center}
+.card h2 em{margin-left:auto;font-size:12px;font-style:normal;color:var(--dim);font-weight:400}
+.hint{color:var(--dim);font-size:12px;line-height:1.6;margin:6px 0 12px}
+label{display:block;font-size:12px;color:var(--dim);margin:10px 0 4px}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff;color:var(--txt)}
+input:focus,select:focus{outline:2px solid #b9ece6;border-color:var(--teal)}
+.row{display:flex;gap:10px}
+.row>div{flex:1}
+.row .btn{white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:10px;border:0;background:var(--teal);color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.ghost{background:#eef2f3;color:#41565c}
+.btn.wide{width:100%;margin-top:16px;padding:12px}
+.msg{font-size:13px;margin-top:10px;color:var(--dim);word-break:break-all;white-space:pre-wrap;min-height:0}
+.msg.err{color:#b42318}
+.msg.ok{color:#0b7f72}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:12px}
+.kv div{background:#f7f9fa;border-radius:10px;padding:10px}
+.kv b{display:block;font-size:18px;margin-top:2px}
+.kv i{font-size:11px;color:var(--dim);font-style:normal}
+.switch{display:flex;gap:10px}
+.switch .btn{flex:1}
+.slider{display:flex;align-items:center;gap:12px}
+.slider input[type=range]{flex:1;padding:0}
+.slider b{width:52px;text-align:right;font-variant-numeric:tabular-nums}
+.hide{display:none}
+.warn{background:#fff8ea;border-color:#f0dcb4}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>尼特利「水族时光」桥接</h1>
+  <div class="sub">厂商云 WebSocket → MQTT → Home Assistant。手机号 + 短信验证码登录后即可接管灯具，无需抓包。</div>
+  <div class="bar">
+    <span class="pill" id="p1">配置：读取中</span>
+    <span class="pill" id="p2">桥接：—</span>
+    <span class="pill" id="p3">设备：—</span>
+  </div>
+
+  <div class="tabs">
+    <div class="tab on" data-tab="setup">配置</div>
+    <div class="tab" data-tab="ctl">控制</div>
+  </div>
+
+  <!-- ================= 配置 ================= -->
+  <div id="tab-setup">
+    <div class="card warn">
+      <h2>开发声明 · 使用前必读</h2>
+      <div class="hint" style="margin:4px 0 10px">本项目为个人开发的非官方工具，与尼特利（Netlea）无关。使用它可能影响灯具硬件（过载/过热/损坏）、厂商云服务与账号（限流/封禁/失去保修）。后果由使用者自行承担，作者不承担责任，项目按现状（AS IS）提供。
+        <a href="/disclaimer.html" target="_blank">阅读完整声明 →</a></div>
+      <label style="display:flex;gap:8px;align-items:flex-start;margin:0;color:inherit;font-size:13px">
+        <input type="checkbox" id="accept" style="width:auto;margin:3px 0 0;flex:0 0 auto">
+        <span>我已阅读并同意免责声明：因使用本工具造成的硬件损坏、账号或服务受限等一切后果由我自行承担。</span>
+      </label>
+      <div class="msg" id="msgAccept"></div>
+    </div>
+    <div class="card">
+      <h2><span class="n">1</span>登录尼特利账号</h2>
+      <div class="hint">与 APP 同一个账号。验证码由厂商短信下发，桥接只做转发、不保存验证码。</div>
+      <label>手机号</label>
+      <input id="phone" inputmode="tel" placeholder="11 位手机号">
+      <div class="row" style="margin-top:10px">
+        <div>
+          <label style="margin-top:0">短信验证码</label>
+          <input id="code" inputmode="numeric" placeholder="6 位验证码">
+        </div>
+        <div style="flex:0 0 auto;align-self:flex-end">
+          <button class="btn ghost" id="btnSms">获取验证码</button>
+        </div>
+      </div>
+      <button class="btn wide" id="btnLogin">登录并获取授权</button>
+      <div class="msg" id="msgLogin"></div>
+      <div id="tokBox" class="hide">
+        <label>授权 token（已登录）</label>
+        <input id="token" placeholder="登录后自动填入">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="n">2</span>灯具设备 ID</h2>
+      <div class="hint">即灯具的 MAC 地址去掉冒号、转大写。APP「设备详情」里能看到，或在路由器 DHCP 列表里按 MAC 找（<code>aa:bb:cc:dd:ee:ff</code> → <code>AABBCCDDEEFF</code>）。</div>
+      <label>设备 ID</label>
+      <input id="dev" placeholder="AABBCCDDEEFF">
+    </div>
+
+    <div class="card">
+      <h2><span class="n">3</span>MQTT 服务器</h2>
+      <div class="hint">桥接会把灯的 25 个实体通过 MQTT Discovery 发布给 Home Assistant。用 HA 里配置的那个 broker 即可。</div>
+      <div class="row">
+        <div>
+          <label style="margin-top:0">地址</label>
+          <input id="mqHost" placeholder="192.168.1.10">
+        </div>
+        <div style="flex:0 0 110px">
+          <label style="margin-top:0">端口</label>
+          <input id="mqPort" inputmode="numeric" placeholder="1883">
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div>
+          <label style="margin-top:0">用户名（可空）</label>
+          <input id="mqUser" autocomplete="off">
+        </div>
+        <div>
+          <label style="margin-top:0">密码（可空）</label>
+          <input id="mqPass" type="password" autocomplete="new-password">
+        </div>
+      </div>
+      <label>Discovery 前缀</label>
+      <input id="prefix" placeholder="homeassistant">
+      <button class="btn wide" id="btnSave">保存并启动桥接</button>
+      <div class="msg" id="msgSave"></div>
+    </div>
+  </div>
+
+  <!-- ================= 控制 ================= -->
+  <div id="tab-ctl" class="hide">
+    <div class="card">
+      <h2>主灯 <em id="ctlState">—</em></h2>
+      <div class="kv">
+        <div><i>开关</i><b id="vOn">—</b></div>
+        <div><i>预设</i><b id="vPreset">—</b></div>
+        <div><i>档位</i><b id="vGrade">—</b></div>
+        <div><i>风扇（自动）</i><b id="vFan">—</b></div>
+        <div><i>通道 R/G/W/B</i><b id="vCh">—</b></div>
+      </div>
+      <div class="switch" style="margin-top:16px">
+        <button class="btn" id="btnOn">开灯</button>
+        <button class="btn ghost" id="btnOff">关灯</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>预设光谱</h2>
+      <div class="hint">切换预设会同时套用该档位对应的四通道与风扇转速（和 APP 行为一致）。</div>
+      <select id="preset"></select>
+    </div>
+
+    <div class="card">
+      <h2>档位（亮度）</h2>
+      <div class="slider">
+        <input type="range" id="grade" min="1" max="20" value="1" step="1">
+        <b id="gradeV">1</b>
+      </div>
+      <div class="hint">档位跨度随预设不同（该机型多为 10 档），实际以设备回读为准。</div>
+    </div>
+
+
+    <div class="msg" id="msgCmd"></div>
+  </div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let TOKEN = "";
+let UUID = "";
+let PRESETS = [];
+let pollTimer = null;
+
+async function api(path, body) {
+  const opt = body === undefined ? {} : {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(body),
+  };
+  const res = await fetch(path, opt);
+  try { return await res.json(); } catch (e) { return {ok: false, msg: "HTTP " + res.status}; }
+}
+
+function setMsg(el, text, kind) {
+  const node = $(el);
+  node.textContent = text || "";
+  node.className = "msg" + (kind ? " " + kind : "");
+}
+
+/* ---------- tabs ---------- */
+document.querySelectorAll(".tab").forEach((t) => {
+  t.onclick = () => {
+    document.querySelectorAll(".tab").forEach((x) => x.classList.remove("on"));
+    t.classList.add("on");
+    const name = t.dataset.tab;
+    $("tab-setup").classList.toggle("hide", name !== "setup");
+    $("tab-ctl").classList.toggle("hide", name !== "ctl");
+  };
+});
+
+/* ---------- status ---------- */
+function pill(node, text, kind) {
+  $(node).textContent = text;
+  $(node).className = "pill" + (kind ? " " + kind : "");
+}
+
+async function refreshStatus() {
+  const s = await api("/api/status");
+  if (s.error) return;
+  pill("p1", s.configured ? "配置：完整" : "配置：待填写", s.configured ? "ok" : "bad");
+  pill("p2", s.running ? "桥接：运行中" : "桥接：未启动", s.running ? "run" : "bad");
+  const st = s.state || {};
+  pill("p3", st.online ? "设备：在线" : (s.running ? "设备：连接中" : "设备：—"),
+       st.online ? "ok" : (s.running ? "run" : ""));
+
+  PRESETS = s.presets || [];
+  const sel = $("preset");
+  if (sel.options.length !== PRESETS.length) {
+    sel.innerHTML = PRESETS.map((n) => '<option value="' + n + '">' + n + "</option>").join("");
+  }
+  if (st.preset) sel.value = st.preset;
+
+  $("vOn").textContent = st.on === true ? "开" : (st.on === false ? "关" : "—");
+  $("vPreset").textContent = st.preset || "—";
+  $("vGrade").textContent = st.grade != null ? st.grade : "—";
+  $("vFan").textContent = st.fan_gear != null ? (st.fan_gear + " 档") : "—";
+  if (document.activeElement !== $("grade") && st.grade != null) { $("grade").value = st.grade; $("gradeV").textContent = st.grade; }
+
+  if (st.ch) $("vCh").textContent = [st.ch.R, st.ch.G, st.ch.W, st.ch.B].join(" / ");
+  $("ctlState").textContent = st.online ? (st.on ? "已开" : "已关") : "离线";
+
+  if (!$("dev").value && s.device_id) $("dev").value = s.device_id;
+  if (!$("mqHost").value && s.mqtt_host) { $("mqHost").value = s.mqtt_host; $("mqPort").value = s.mqtt_port || 1883; }
+  if (s.token_set && !$("token").value) { $("token").placeholder = "已保存 token（留空即沿用）"; $("tokBox").classList.remove("hide"); }
+}
+
+/* ---------- 登录 ---------- */
+let smsLeft = 0, smsTimer = null;
+$("btnSms").onclick = async () => {
+  const phone = $("phone").value.trim();
+  if (!/^1\d{10}$/.test(phone)) return setMsg("msgLogin", "手机号格式不对", "err");
+  setMsg("msgLogin", "发送中…");
+  const r = await api("/api/sms", {phone});
+  if (!r.ok) return setMsg("msgLogin", "发送失败：" + (r.msg || ""), "err");
+  UUID = r.uuid;
+  setMsg("msgLogin", "验证码已发送，请查收短信", "ok");
+  smsLeft = 60;
+  $("btnSms").disabled = true;
+  clearInterval(smsTimer);
+  smsTimer = setInterval(() => {
+    smsLeft -= 1;
+    if (smsLeft <= 0) { clearInterval(smsTimer); $("btnSms").disabled = false; $("btnSms").textContent = "获取验证码"; return; }
+    $("btnSms").textContent = smsLeft + "s";
+  }, 1000);
+  $("btnSms").textContent = smsLeft + "s";
+};
+
+$("btnLogin").onclick = async () => {
+  const phone = $("phone").value.trim();
+  const code = $("code").value.trim();
+  if (!UUID) return setMsg("msgLogin", "请先点「获取验证码」", "err");
+  if (!code) return setMsg("msgLogin", "请填验证码", "err");
+  setMsg("msgLogin", "登录中…");
+  const r = await api("/api/login", {phone, uuid: UUID, code});
+  if (!r.ok) return setMsg("msgLogin", "登录失败：" + (r.msg || "token 未返回"), "err");
+  TOKEN = r.token;
+  $("token").value = r.token;
+  $("tokBox").classList.remove("hide");
+  setMsg("msgLogin", "登录成功，token 已填入", "ok");
+  refreshStatus();
+};
+
+/* ---------- 保存 ---------- */
+$("btnSave").onclick = async () => {
+  if (!$("accept").checked) return setMsg("msgAccept", "请先勾选「我已阅读并同意免责声明」，否则不能部署/启用", "err");
+  const token = ($("token").value || "").trim();
+  const dev = $("dev").value.trim().toUpperCase();
+  const host = $("mqHost").value.trim();
+  if (!token) return setMsg("msgSave", "还没有 token，请先登录", "err");
+  if (!dev) return setMsg("msgSave", "请填设备 ID", "err");
+  if (!host) return setMsg("msgSave", "请填 MQTT 地址", "err");
+  setMsg("msgSave", "保存中…");
+  const r = await api("/api/save", {
+    token, device_id: dev,
+    mqtt_host: host,
+    mqtt_port: parseInt($("mqPort").value || "1883", 10),
+    mqtt_user: $("mqUser").value,
+    mqtt_pass: $("mqPass").value,
+    prefix: $("prefix").value || "homeassistant",
+    accept_risk: true,
+  });
+  if (!r.ok) return setMsg("msgSave", "保存失败：" + (r.msg || ""), "err");
+  setMsg("msgSave", r.msg + "，几秒后设备上线，可去「控制」页试灯", "ok");
+  setTimeout(refreshStatus, 500);
+};
+
+/* ---------- 控制 ---------- */
+async function cmd(payload) {
+  const r = await api("/api/cmd", payload);
+  setMsg("msgCmd", r.ok ? "已下发：" + (r.msg || "") : "失败：" + (r.msg || ""), r.ok ? "ok" : "err");
+  setTimeout(refreshStatus, 800);
+}
+$("btnOn").onclick = () => cmd({action: "on"});
+$("btnOff").onclick = () => cmd({action: "off"});
+$("preset").onchange = (e) => cmd({action: "preset", name: e.target.value});
+$("grade").oninput = (e) => { $("gradeV").textContent = e.target.value; };
+$("grade").onchange = (e) => cmd({action: "grade", value: parseInt(e.target.value, 10)});
+
+
+
+refreshStatus();
+pollTimer = setInterval(refreshStatus, 3000);
+</script>
+</body>
+</html>

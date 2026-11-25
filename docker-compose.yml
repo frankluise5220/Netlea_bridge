@@ -1,0 +1,16 @@
+services:
+  netlea-bridge:
+    build: .
+    image: netlea-bridge:latest
+    container_name: netlea-bridge
+    restart: unless-stopped
+    # 桥接要连本地局域网里的灯/MQTT，host 模式最省事；也可以改成 ports: ["8099:8099"]
+    network_mode: host
+    environment:
+      - NETLEA_CONFIG=/data/config.json
+      - NETLEA_WEB_PORT=8099
+    volumes:
+      - ./data:/data
+
+# 首次启动：docker compose up -d
+# 然后浏览器打开 http://<主机IP>:8099/ 走配置向导（手机号 → 短信码 → 设备ID → MQTT）
